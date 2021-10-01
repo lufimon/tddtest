@@ -17,6 +17,7 @@ class EmployeeControllerTest {
         // Act
         val result = restTemplate.getForObject("/employee/1", EmployeeResponse::class.java)
         // Assert
+        assertEquals(1, result.id)
         assertEquals("tanuphong", result.name)
     }
 }
