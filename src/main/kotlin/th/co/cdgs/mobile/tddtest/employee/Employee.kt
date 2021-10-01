@@ -2,7 +2,7 @@ package th.co.cdgs.mobile.tddtest.employee
 
 import javax.persistence.*
 
-@Entity
+@Entity(name = "employee")
 open class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
