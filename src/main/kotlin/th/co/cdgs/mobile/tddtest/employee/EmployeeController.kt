@@ -1,5 +1,6 @@
 package th.co.cdgs.mobile.tddtest.employee
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
@@ -7,25 +8,19 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class EmployeeController {
 
+    @Autowired
+    private lateinit var employeeService: EmployeeService
+
     @GetMapping("/employee/{id}")
     fun getById(@PathVariable id: Int): EmployeeResponse? {
-        return EmployeeResponse(
-            id = id,
-            name = "tanuphong"
-        )
+        return employeeService.get(id)
     }
 
     @GetMapping("/employee")
     fun getAll(): MutableList<EmployeeResponse>? {
         return mutableListOf(
-            EmployeeResponse(
-                id = 1,
-                name = "tanuphong"
-            ),
-            EmployeeResponse(
-                id = 2,
-                name = "tam"
-            )
+            EmployeeResponse(1,"tanuphong"),
+            EmployeeResponse(2,"tam")
         )
     }
 }
