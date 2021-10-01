@@ -1,7 +1,6 @@
 package th.co.cdgs.mobile.tddtest.employee
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
@@ -24,5 +23,13 @@ class EmployeeRepositoryTest {
         assertTrue(result.isPresent)
         assertEquals(1, result.get().id)
         assertEquals("tanuphong", result.get().name)
+    }
+
+    @Test
+    fun case02() {
+        // Act
+        val result = employeeRepository.findById(1)
+        // Assert
+        assertFalse(result.isPresent)
     }
 }
