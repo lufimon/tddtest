@@ -14,4 +14,18 @@ class EmployeeController {
             name = "tanuphong"
         )
     }
+
+    @GetMapping("/employee")
+    fun getAll(): MutableList<EmployeeResponse>? {
+        return mutableListOf(
+            EmployeeResponse(
+                id = 1,
+                name = "tanuphong"
+            ),
+            EmployeeResponse(
+                id = 2,
+                name = "tam"
+            )
+        )
+    }
 }
