@@ -1,14 +1,15 @@
 package th.co.cdgs.mobile.tddtest.employee
 
+import org.hibernate.Hibernate
 import javax.persistence.*
 
 @Entity(name = "employee")
-open class Employee {
+data class Employee(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    open var id: Int? = null
+    var id: Int? = null,
 
     @Column(name = "name", nullable = false)
-    open var name: String? = null
-}
+    var name: String? = null
+)
